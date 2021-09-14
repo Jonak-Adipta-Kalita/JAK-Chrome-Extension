@@ -1,0 +1,20 @@
+{
+	"name": "jak-chrome-extension",
+	"version": "0.0.1",
+	"description": "A Chrome Extension made by JAK",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git"
+	},
+	"keywords": ["chrome", "extension"],
+	"author": "Jonak Adipta Kalita",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/issues"
+	},
+	"homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme"
+}
