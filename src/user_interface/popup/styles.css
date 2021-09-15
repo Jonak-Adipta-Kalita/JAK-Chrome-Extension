@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Otomanopee One";
+    src: url("../../assets/fonts/OtomanopeeOne-Regular.ttf") format("truetype");
+}
+
 * {
 	--backgroundColor: #cfccc6;
 }
@@ -6,6 +11,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	background-color: var(--backgroundColor);
+	font-family: "Otomanopee One";
 }
 
 .header {
