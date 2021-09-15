@@ -22,9 +22,16 @@ git clone https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git
 
 ### Test Extension
 
-To test the Extension open [Chrome Browser](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiC94vV_P_yAhV8nUsFHV2qDRcYABAAGgJzZg&ohost=www.google.com&cid=CAESQOD2UOFqLJr2ZMo7Oj1V1Y03IpxpuFITHXnfF1LAdvJzePe_Nq4ZLxgQXDnyHfp58GNhm-VO6zKnDaT0dyqbg9c&sig=AOD64_2O9vqVNN3OxLtxhvl-8WLRimeKCg&q&nis=1&adurl&ved=2ahUKEwid04TV_P_yAhUczjgGHeyrBQwQ0Qx6BAgCEAE)
-now go to [Chrome Extension Panel](chrome://extensions/) and turn on `Developer Mode`. Now click
-on `Load Unpacked` and select the cloned folder. Now you can test your Extension.
+To test the Extension open 
+[Chrome Browser](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiC94vV_P_yAhV8nUsFHV2qDRcYABAAGgJzZg&ohost=www.google.com&cid=CAESQOD2UOFqLJr2ZMo7Oj1V1Y03IpxpuFITHXnfF1LAdvJzePe_Nq4ZLxgQXDnyHfp58GNhm-VO6zKnDaT0dyqbg9c&sig=AOD64_2O9vqVNN3OxLtxhvl-8WLRimeKCg&q&nis=1&adurl&ved=2ahUKEwid04TV_P_yAhUczjgGHeyrBQwQ0Qx6BAgCEAE)
+
+#### Turn on Developer Mode`
+
+Go to [Chrome Extension Panel](chrome://extensions/) and turn on `Developer Mode`.
+
+#### Load Unpacked Extension
+In [Chrome Extension Panel](chrome://extensions/) click on `Load Unpacked` and select the cloned 
+folder. Now you can test your Extension.
 
 ## Technology(s) Used
 
