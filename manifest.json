@@ -8,11 +8,11 @@
 		"tabs"
 	],
 	"background": {
-		"service_worker": "js/background.js"
+		"service_worker": "src/js/background.js"
 	},
 	"action" : {
 		"default_title": "JAK Chrome Extension",
-		"default_popup": "user_interface/popup/index.html",
+		"default_popup": "src/user_interface/popup/index.html",
 		"default_icon": {
 			"16": "assets/images/logo.png",
 			"32": "assets/images/logo.png",
