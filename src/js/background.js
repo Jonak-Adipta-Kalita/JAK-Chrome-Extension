@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener((details) => {
 	const name = "JAK Chrome Extension";
 	
-	if(details.reason === 'install') {
+	if(details.reason === "install") {
 		console.log(`Thanks for Installing ${name}!!`);
 	} else if (details.reason === "update") {
 		console.log(`Thanks for Updating ${name}!!`);
