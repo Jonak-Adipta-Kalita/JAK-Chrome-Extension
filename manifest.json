@@ -1,0 +1,28 @@
+{
+	"manifest_version": 3,
+	"name": "JAK Chrome Extension",
+	"version": "0.0.1",
+	"description": "A Chrome Extension made by JAK",
+	"permissions": [
+		"contextMenus",
+		"tabs"
+	],
+	"background": {
+		"service_worker": "js/background.js"
+	},
+	"action" : {
+		"default_popup": "user_interface/popup/index.html",
+		"default_icon": {
+			"16": "assets/images/logo.png",
+			"32": "assets/images/logo.png",
+			"48": "assets/images/logo.png",
+			"128":"assets/images/logo.png"
+		}
+	},
+	"icons": {
+		"16": "assets/images/logo.png",
+		"32": "assets/images/logo.png",
+		"48": "assets/images/logo.png",
+		"128": "assets/images/logo.png"
+	}
+}

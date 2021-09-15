@@ -1,0 +1,18 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header img {
+	height: 60px;
+	width: 60px;
+}
+
+.header p {
+	white-space: nowrap;
+	align-self: center;
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: 30px;
+	margin-right: 10px;
+}
