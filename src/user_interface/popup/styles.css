@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Otomanopee One";
-    src: url("../../assets/fonts/OtomanopeeOne-Regular.ttf") format("truetype");
+    src: url("/assets/fonts/OtomanopeeOne-Regular.ttf") format("truetype");
 }
 
 * {
