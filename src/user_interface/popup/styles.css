@@ -37,4 +37,6 @@ html {
 
 .main-body {
     background-color: white;
+	padding: 10px;
+	flex-direction: column;
 }
