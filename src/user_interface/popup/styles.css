@@ -45,27 +45,27 @@ html {
 }
 
 .main-body .notifications-header-text {
-	font-size: 12px;
+    font-size: 12px;
 }
 
 .main-body .notifications div {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-body .notifications:first-child {
-	margin-top: -5px !important;
+    margin-top: -5px !important;
 }
 
 .main-body .notifications .notify-btn {
-	cursor: pointer;
-	outline: none;
-	margin-top: 12px;
-	border-radius: 10px;
-	height: 60%;
-	padding: 5px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 12px;
+    border-radius: 10px;
+    height: 60%;
+    padding: 5px;
 }
 
 .main-body .notifications .notify-btn:hover {
-	opacity: 0.9;
+    opacity: 0.9;
 }
