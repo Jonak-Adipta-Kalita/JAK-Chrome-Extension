@@ -1,28 +1,28 @@
 {
-  "name": "jak-chrome-extension",
-  "version": "0.0.1",
-  "description": "A Chrome Extension made by JAK",
-  "main": "src/index.js",
-  "scripts": {
-    "build:popup": "webpack --mode production --entry ./src/popup/index.js --output-filename script.js -o ./dist/popup",
-    "watch": "webpack --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git"
-  },
-  "keywords": [
-    "chrome",
-    "extension"
-  ],
-  "author": "Jonak Adipta Kalita",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/issues"
-  },
-  "homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme",
-  "devDependencies": {
-    "webpack": "^5.52.1",
-    "webpack-cli": "^4.8.0"
-  }
+    "name": "jak-chrome-extension",
+    "version": "0.0.1",
+    "description": "A Chrome Extension made by JAK",
+    "main": "src/index.js",
+    "scripts": {
+        "build:popup": "webpack --mode production --entry ./src/popup/index.js --output-filename script.js -o ./dist/popup",
+        "watch": "webpack --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git"
+    },
+    "keywords": [
+        "chrome",
+        "extension"
+    ],
+    "author": "Jonak Adipta Kalita",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/issues"
+    },
+    "homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme",
+    "devDependencies": {
+        "webpack": "^5.52.1",
+        "webpack-cli": "^4.8.0"
+    }
 }

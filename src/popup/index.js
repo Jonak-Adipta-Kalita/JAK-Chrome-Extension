@@ -25,4 +25,3 @@ yt_notify_btn.addEventListener("click", () => {
         yt_notify_btn.innerText = localStorage.getItem("yt_notify_btn");
     }
 });
-
