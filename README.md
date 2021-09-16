@@ -37,6 +37,7 @@ folder. Now you can test your Extension.
 ## Technology(s) Used
 
 -   Language: [JavaScript](https://www.javascript.com/)
+-   Backend: [Node JS](https://nodejs.org/)
 
 ## Contributors
 
