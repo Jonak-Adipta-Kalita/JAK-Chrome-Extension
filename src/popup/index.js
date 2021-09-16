@@ -1,4 +1,3 @@
-const main_body = document.getElementById("main-body");
 const insta_notify_btn = document.getElementById("insta_notify_btn");
 const yt_notify_btn = document.getElementById("yt_notify_btn");
 
