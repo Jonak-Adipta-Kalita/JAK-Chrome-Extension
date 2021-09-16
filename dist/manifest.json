@@ -5,11 +5,11 @@
     "description": "A Chrome Extension made by JAK",
     "permissions": ["contextMenus", "tabs", "notifications"],
     "background": {
-        "service_worker": "src/background.js"
+        "service_worker": "background.js"
     },
     "action": {
         "default_title": "JAK Chrome Extension",
-        "default_popup": "src/user_interface/popup/index.html",
+        "default_popup": "popup/index.html",
         "default_icon": {
             "16": "assets/images/logo.png",
             "32": "assets/images/logo.png",
