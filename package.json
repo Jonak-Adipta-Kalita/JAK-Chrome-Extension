@@ -11,6 +11,7 @@
         "prettier:fix": "prettier --write **/*.{js,html,css,md,json}",
         "build:popup": "webpack --mode production --entry ./src/popup/index.js --output-filename script.js -o ./dist/popup",
         "watch": "webpack --watch",
+		"format": "eslint --fix . && prettier --write **/*.{js,html,css,md,json}",
         "prepare": "husky install"
     },
     "repository": {
