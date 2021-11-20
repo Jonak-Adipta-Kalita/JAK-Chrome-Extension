@@ -11,7 +11,8 @@
         "prettier:fix": "prettier --write **/*.{js,html,css,md,json}",
         "build:popup": "webpack --mode production --entry ./src/popup/index.js --output-filename script.js -o ./dist/popup",
         "watch": "webpack --watch",
-		"format": "eslint --fix . && prettier --write **/*.{js,html,css,md,json}",
+        "format": "eslint --fix . && prettier --write **/*.{js,html,css,md,json}",
+        "check:version": "ncu",
         "prepare": "husky install"
     },
     "repository": {
@@ -30,8 +31,9 @@
     "homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme",
     "devDependencies": {
         "eslint": "^7.32.0",
-        "prettier": "^2.4.1",
         "husky": "^7.0.4",
+        "npm-check-updates": "^12.0.2",
+        "prettier": "^2.4.1",
         "webpack": "^5.64.0",
         "webpack-cli": "^4.9.1"
     },
