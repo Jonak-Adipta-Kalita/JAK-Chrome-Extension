@@ -5,7 +5,7 @@
     "main": "dist/background.js",
     "scripts": {
         "test": "echo No Tests provided till now.",
-        "build": "webpack --config webpack.config.js",
+        "build": "tsc && webpack --config webpack.config.js",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "prettier": "prettier **/*.{js,html,css,md,json}",
