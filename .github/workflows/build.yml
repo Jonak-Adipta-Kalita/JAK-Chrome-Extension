@@ -1,4 +1,4 @@
-name: build popup
+name: build
 
 on:
   push:
@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install
-      - run: yarn build:popup
+      - run: yarn build
