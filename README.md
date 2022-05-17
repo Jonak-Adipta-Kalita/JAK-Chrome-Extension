@@ -20,6 +20,22 @@ To Clone this Repository, open a terminal in a empty folder and type
 git clone https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git
 ```
 
+### Build the Extension
+
+Open a Terminal in the cloned project. Now type:
+
+```shell
+# NPM
+
+npm install && npm run build
+
+# Yarn
+
+yarn && yarn build
+```
+
+and hit Enter.
+
 ### Test Extension
 
 To test the Extension open
@@ -31,7 +47,7 @@ Go to [Chrome Extension Panel](chrome://extensions/) and turn on `Developer Mode
 
 #### Load Unpacked Extension
 
-In [Chrome Extension Panel](chrome://extensions/) click on `Load Unpacked` and select the cloned
+In [Chrome Extension Panel](chrome://extensions/) click on `Load Unpacked` and select the `dist`
 folder. Now you can test your Extension.
 
 ## Technology(s) Used
