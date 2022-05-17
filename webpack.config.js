@@ -4,10 +4,15 @@ module.exports = {
     mode: "production",
     entry: {
         background: path.resolve(__dirname, "src", "background.ts"),
+        popup: path.resolve(__dirname, "src", "popup", "script.ts"),
     },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "[name].js",
+        filename: (pathData) => {
+            return pathData.chunk.name === "main"
+                ? "[name].js"
+                : "[name]/[name].js";
+        },
     },
     resolve: {
         extensions: [".ts", ".js"],
