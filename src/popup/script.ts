@@ -1,6 +1,6 @@
-const website_notifyBtn = document.getElementById("website-notifyBtn");
-const api_notifyBtn = document.getElementById("api-notifyBtn");
-const discordBot_notifyBtn = document.getElementById("discord-bot-notifyBtn");
+const website_notifyBtn = document.getElementById("website-notifyBtn")!;
+const api_notifyBtn = document.getElementById("api-notifyBtn")!;
+const discordBot_notifyBtn = document.getElementById("discord-bot-notifyBtn")!;
 
 website_notifyBtn.addEventListener("click", () => {
     if (website_notifyBtn.innerText === "Enable") {
@@ -9,7 +9,7 @@ website_notifyBtn.addEventListener("click", () => {
         localStorage.setItem("website-notifyBtn", "Enable");
     }
 
-    website_notifyBtn.innerText = localStorage.getItem("website-notifyBtn");
+    website_notifyBtn.innerText = localStorage.getItem("website-notifyBtn")!;
 });
 
 api_notifyBtn.addEventListener("click", () => {
@@ -19,7 +19,7 @@ api_notifyBtn.addEventListener("click", () => {
         localStorage.setItem("api-notifyBtn", "Enable");
     }
 
-    api_notifyBtn.innerText = localStorage.getItem("api-notifyBtn");
+    api_notifyBtn.innerText = localStorage.getItem("api-notifyBtn")!;
 });
 
 discordBot_notifyBtn.addEventListener("click", () => {
@@ -31,5 +31,5 @@ discordBot_notifyBtn.addEventListener("click", () => {
 
     discordBot_notifyBtn.innerText = localStorage.getItem(
         "discord-bot-notifyBtn"
-    );
+    )!;
 });
