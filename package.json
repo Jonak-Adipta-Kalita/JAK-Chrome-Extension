@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme",
     "devDependencies": {
-        "@types/chrome": "^0.0.186",
+        "@types/chrome": "^0.0.190",
         "copy-webpack-plugin": "^10.2.4",
         "eslint": "^7.32.0",
         "husky": "^7.0.4",
