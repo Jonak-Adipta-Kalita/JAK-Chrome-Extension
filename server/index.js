@@ -4,15 +4,17 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
-app.post("/api/webhook", (req, res) => {
+app.post("/webhook", (req, res) => {
     const data = req.body;
 
     console.log(data);
     res.status(200).send("Response recieved!!");
 });
 
-module.exports = app
+const server = app.listen(3000, () => {
+    console.log(`Running on: http://localhost:${server.address().port}`);
+});

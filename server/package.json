@@ -2,9 +2,9 @@
     "name": "jak-chrome-extension_server",
     "version": "0.0.1",
     "description": "A Chrome Extension made by JAK - Server",
-    "main": "api/server.js",
+    "main": "index.js",
     "scripts": {
-        "dev": "nodemon"
+        "start": "nodemon"
     },
     "repository": {
         "type": "git",
