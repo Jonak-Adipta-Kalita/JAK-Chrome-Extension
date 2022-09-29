@@ -1,12 +1,10 @@
 {
     "compilerOptions": {
         "strict": true,
-        "module": "ES6",
+        "module": "commonJs",
         "target": "es6",
         "esModuleInterop": true,
-        "sourceMap": true,
-        "rootDir": "src",
-        "outDir": "dist",
+        "sourceMap": false,
         "noEmitOnError": true,
         "typeRoots": ["node_modules/@types"],
         "moduleResolution": "node"

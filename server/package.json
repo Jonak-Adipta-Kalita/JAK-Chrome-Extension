@@ -2,7 +2,7 @@
     "name": "jak-chrome-extension_server",
     "version": "0.0.1",
     "description": "A Chrome Extension made by JAK - Server",
-    "main": "dist/index.js",
+    "main": "index.js",
     "type": "module",
     "scripts": {
         "start": "concurrently \"yarn run build:watch\" \"nodemon\"",

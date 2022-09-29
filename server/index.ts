@@ -22,6 +22,6 @@ app.post("/webhook", (req, res) => {
     }
 });
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Running on: http://localhost:${PORT}`);
 });
