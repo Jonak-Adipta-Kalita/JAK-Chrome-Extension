@@ -3,7 +3,6 @@
     "version": "0.0.1",
     "description": "A Chrome Extension made by JAK - Server",
     "main": "index.js",
-    "type": "module",
     "scripts": {
         "start": "concurrently \"yarn run build:watch\" \"nodemon\"",
         "build": "tsc",
