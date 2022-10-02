@@ -3,7 +3,7 @@
     "name": "JAK Chrome Extension",
     "version": "0.0.1",
     "description": "A Chrome Extension made by JAK",
-    "permissions": ["contextMenus", "tabs", "notifications"],
+    "permissions": ["contextMenus", "tabs", "notifications", "gcm"],
     "background": {
         "service_worker": "background.js"
     },

@@ -1,24 +1,3 @@
-import { initializeApp, getApps, getApp } from "firebase/app";
-import { getMessaging, getToken } from "firebase/messaging";
-import { onBackgroundMessage } from "firebase/messaging/sw";
-
-let firebaseToken: string | null = null;
-
-const firebaseApp =
-    getApps().length === 0
-        ? initializeApp({
-              apiKey: process.env.FIREBASE_API_KEY,
-              authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-              projectId: process.env.FIREBASE_PROJECT_ID,
-              storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-              messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-              appId: process.env.FIREBASE_APP_ID,
-              measurementId: process.env.FIREBASE_MEASUREMENT_ID,
-          })
-        : getApp();
-
-const messaging = getMessaging(firebaseApp);
-
 chrome.runtime.onInstalled.addListener((details) => {
     const name = "JAK Chrome Extension";
 
@@ -57,25 +36,14 @@ chrome.runtime.onInstalled.addListener((details) => {
     }
 });
 
-getToken(messaging, {
-    vapidKey: process.env.FIREBASE_CLOUD_MESSAGING_VAPID_KEY,
-}).then((currentToken) => {
-    firebaseToken = currentToken;
+chrome.gcm.register([process.env.FIREBASE_SENDER_ID!], (registration_id) => {
+    console.log(registration_id);
 });
 
-onBackgroundMessage(messaging, (payload) => {
-    const projectName = payload.data!.projectName;
-    if (localStorage.getItem(`${projectName}-notifyBtn`) === "Enable") {
-        chrome.notifications.create(
-            `github_notify_${projectName}`,
-            {
-                type: "basic",
-                iconUrl: "../../assets/images/logo.png",
-                title: payload.notification?.title!,
-                message: payload.notification?.body!,
-                priority: 2,
-            },
-            (notificationId) => {}
-        );
-    }
+chrome.gcm.onMessage.addListener((message) => {
+    console.log(message);
 });
+
+if (chrome.runtime.lastError) {
+    console.log(chrome.runtime.lastError);
+}
