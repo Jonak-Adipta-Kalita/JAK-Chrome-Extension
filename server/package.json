@@ -24,6 +24,7 @@
     "homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme",
     "dependencies": {
         "express": "^4.18.1",
+        "firebase": "^9.10.0",
         "github-webhook-event-types": "^1.2.1"
     },
     "devDependencies": {
