@@ -657,10 +657,10 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@types/chrome@^0.0.186":
-  version "0.0.186"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.186.tgz#e6513ccf2021eab90b3313bb60ef272761f1df78"
-  integrity sha512-Ykpf95dbv0resO/PcRF/9vKETOKma5D2sSUKo8mSL1vz03IgVhyHuCrlzbDYMLrXIl9CcyGnYTMG2Zg0WAk62w==
+"@types/chrome@^0.0.197":
+  version "0.0.197"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.197.tgz#c1b50cdb72ee40f9bc1411506031a9f8a925ab35"
+  integrity sha512-m1NfS5bOjaypyqQfaX6CxmJodZVcvj5+Mt/K94EBHkflYjPNmXHAzbxfifdLMa0YM3PDyOxohoTS5ug/e6p5jA==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
@@ -1398,6 +1398,30 @@ dot-prop@^5.2.0:
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
   dependencies:
     is-obj "^2.0.0"
+
+dotenv-defaults@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/dotenv-defaults/-/dotenv-defaults-2.0.2.tgz#6b3ec2e4319aafb70940abda72d3856770ee77ac"
+  integrity sha512-iOIzovWfsUHU91L5i8bJce3NYK5JXeAwH50Jh6+ARUdLiiGlYWfGw6UkzsYqaXZH/hjE/eCd/PlfM/qqyK0AMg==
+  dependencies:
+    dotenv "^8.2.0"
+
+dotenv-webpack@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv-webpack/-/dotenv-webpack-8.0.1.tgz#6656550460a8076fab20e5ac2eac867e72478645"
+  integrity sha512-CdrgfhZOnx4uB18SgaoP9XHRN2v48BbjuXQsZY5ixs5A8579NxQkmMxRtI7aTwSiSQcM2ao12Fdu+L3ZS3bG4w==
+  dependencies:
+    dotenv-defaults "^2.0.2"
+
+dotenv@^16.0.3:
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
+  integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
+
+dotenv@^8.2.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
+  integrity sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==
 
 duplexer3@^0.1.4:
   version "0.1.4"
