@@ -1,49 +1,58 @@
-chrome.runtime.onInstalled.addListener((details) => {
-    const name = "JAK Chrome Extension";
+try {
+    self.importScripts("firebase/messaging.js");
 
-    if (details.reason === "install") {
-        chrome.notifications.create("install", {
-            type: "basic",
-            iconUrl: "../../assets/images/logo.png",
-            title: `Extension Installed!!`,
-            message: `Thanks for Installing ${name}!!`,
-            priority: 2,
-        });
-    } else if (details.reason === "update") {
-        chrome.notifications.create("update", {
-            type: "basic",
-            iconUrl: "../../assets/images/logo.png",
-            title: `Extension Updated!!`,
-            message: `Thanks for Updating ${name}!!`,
-            priority: 2,
-        });
-    } else if (details.reason === "chrome_update") {
-        chrome.notifications.create("chrome_update", {
-            type: "basic",
-            iconUrl: "../../assets/images/logo.png",
-            title: `Chrome got Updated!!`,
-            message: `Please also Update ${name} to get the most values!!`,
-            priority: 2,
-        });
-    } else if (details.reason === "shared_module_update") {
-        chrome.notifications.create("shared_module_update", {
-            type: "basic",
-            iconUrl: "../../assets/images/logo.png",
-            title: `Shared Module Updated!!`,
-            message: `A Shared Module is Updated!!`,
-            priority: 2,
-        });
-    }
-});
+    chrome.runtime.onInstalled.addListener((details) => {
+        const name = "JAK Chrome Extension";
 
-chrome.gcm.register([process.env.FIREBASE_SENDER_ID!], (registration_id) => {
-	console.log(registration_id);
-});
+        if (details.reason === "install") {
+            chrome.notifications.create("install", {
+                type: "basic",
+                iconUrl: "../../assets/images/logo.png",
+                title: `Extension Installed!!`,
+                message: `Thanks for Installing ${name}!!`,
+                priority: 2,
+            });
+        } else if (details.reason === "update") {
+            chrome.notifications.create("update", {
+                type: "basic",
+                iconUrl: "../../assets/images/logo.png",
+                title: `Extension Updated!!`,
+                message: `Thanks for Updating ${name}!!`,
+                priority: 2,
+            });
+        } else if (details.reason === "chrome_update") {
+            chrome.notifications.create("chrome_update", {
+                type: "basic",
+                iconUrl: "../../assets/images/logo.png",
+                title: `Chrome got Updated!!`,
+                message: `Please also Update ${name} to get the most values!!`,
+                priority: 2,
+            });
+        } else if (details.reason === "shared_module_update") {
+            chrome.notifications.create("shared_module_update", {
+                type: "basic",
+                iconUrl: "../../assets/images/logo.png",
+                title: `Shared Module Updated!!`,
+                message: `A Shared Module is Updated!!`,
+                priority: 2,
+            });
+        }
+    });
 
-chrome.gcm.onMessage.addListener((message) => {
-    console.log(message);
-});
+    chrome.gcm.register(
+        [process.env.FIREBASE_SENDER_ID!],
+        (registration_id) => {
+            console.log(registration_id);
+        }
+    );
 
-chrome.gcm.onSendError.addListener((error) => {
-	console.log(error);
-});
+    chrome.gcm.onMessage.addListener((message) => {
+        console.log(message);
+    });
+
+    chrome.gcm.onSendError.addListener((error) => {
+        console.log(error);
+    });
+} catch (error) {
+    console.log(error);
+}

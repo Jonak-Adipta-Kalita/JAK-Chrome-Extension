@@ -8,9 +8,9 @@
         "build": "tsc && webpack --config webpack.config.js",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
-        "prettier": "prettier **/*.{js,html,css,md,json}",
-        "prettier:fix": "prettier --write **/*.{js,html,css,md,json}",
-        "format": "eslint --fix . && prettier --write **/*.{js,html,css,md,json}",
+        "prettier": "prettier **/*.{js,ts,html,css,md,json}",
+        "prettier:fix": "prettier --write **/*.{js,ts,html,css,md,json}",
+        "format": "eslint --fix . && prettier --write **/*.{js,ts,html,css,md,json}",
         "check:version": "ncu"
     },
     "repository": {
