@@ -36,21 +36,6 @@ try {
             });
         }
     });
-
-    chrome.gcm.register(
-        [process.env.FIREBASE_SENDER_ID!],
-        (registration_id) => {
-            console.log(registration_id);
-        }
-    );
-
-    chrome.gcm.onMessage.addListener((message) => {
-        console.log(message);
-    });
-
-    chrome.gcm.onSendError.addListener((error) => {
-        console.log(error);
-    });
 } catch (error) {
     console.log(error);
 }
