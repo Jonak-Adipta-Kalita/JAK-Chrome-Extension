@@ -36,12 +36,14 @@ chrome.runtime.onInstalled.addListener((details) => {
     }
 });
 
-chrome.gcm.register([process.env.FIREBASE_SENDER_ID!], (registration_id) => {});
+chrome.gcm.register([process.env.FIREBASE_SENDER_ID!], (registration_id) => {
+	console.log(registration_id);
+});
 
 chrome.gcm.onMessage.addListener((message) => {
     console.log(message);
 });
 
-if (chrome.runtime.lastError) {
-    console.log(chrome.runtime.lastError);
-}
+chrome.gcm.onSendError.addListener((error) => {
+	console.log(error);
+});
