@@ -1,6 +1,4 @@
 try {
-    self.importScripts("firebase/messaging.js");
-
     chrome.runtime.onInstalled.addListener((details) => {
         const name = "JAK Chrome Extension";
 

@@ -5,8 +5,7 @@
     "description": "A Chrome Extension made by JAK",
     "permissions": ["contextMenus", "tabs", "notifications", "gcm"],
     "background": {
-        "service_worker": "background.js",
-        "type": "module"
+        "service_worker": "background.js"
     },
     "action": {
         "default_title": "JAK Chrome Extension",
