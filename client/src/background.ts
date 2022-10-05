@@ -65,16 +65,20 @@ try {
 
     const db = getFirestore(firebaseApp);
 
-    onSnapshot(collection(db, "notifications"), {
-        next(snapshot) {
-            snapshot?.docs?.map((doc) => {
-                const id = doc.id;
-                const data = doc.data() as Release;
+    onSnapshot(
+        collection(db, "notifications"),
+        {
+            next(snapshot) {
+                const doc = snapshot?.docs[0];
+                if (doc) {
+                    const id = doc.id;
+                    const data = doc.data() as Release;
 
-                console.log(id, data);
-            });
-        },
-    });
+                    console.log(id, data);
+                }
+            },
+        }
+    );
 } catch (error) {
     console.log(error);
 }
