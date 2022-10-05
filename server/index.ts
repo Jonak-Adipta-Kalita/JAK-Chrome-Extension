@@ -1,17 +1,16 @@
 import express from "express";
-import { Release } from "github-webhook-event-types";
+import { Release as Release_ } from "github-webhook-event-types";
 import { initializeApp, getApps, getApp } from "firebase/app";
-import {
-    addDoc,
-    collection,
-    getFirestore,
-    serverTimestamp,
-} from "firebase/firestore";
+import { getDatabase, ref, set, serverTimestamp, get } from "firebase/database";
 import dotenv from "dotenv";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+interface Release extends Release_ {
+    timestamp: Object;
+}
 
 const firebaseApp =
     getApps().length === 0
@@ -19,6 +18,7 @@ const firebaseApp =
               apiKey: process.env.FIREBASE_API_KEY,
               authDomain: process.env.FIREBASE_AUTH_DOMAIN,
               projectId: process.env.FIREBASE_PROJECT_ID,
+              databaseURL: process.env.FIREBASE_DATABASE_URL,
               storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
               messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
               appId: process.env.FIREBASE_APP_ID,
@@ -26,7 +26,7 @@ const firebaseApp =
           })
         : getApp();
 
-const db = getFirestore(firebaseApp);
+const db = getDatabase(firebaseApp);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -39,9 +39,21 @@ app.post("/webhook", (req, res) => {
     const data: Release = req.body;
 
     if (data.action === "released") {
-        addDoc(collection(db, "notification"), {
-            ...data,
-            timestamp: serverTimestamp(),
+        const docRef = ref(db, "notification");
+
+        get(docRef).then((snapshot) => {
+            const currentNotificaions = snapshot.val() as Release[];
+            const newNotification: Release = {
+                ...data,
+                timestamp: serverTimestamp(),
+            };
+
+            set(
+                docRef,
+                currentNotificaions
+                    ? currentNotificaions.push(newNotification)
+                    : [newNotification]
+            );
         });
         res.status(200).send("Response recieved!!");
     } else {
