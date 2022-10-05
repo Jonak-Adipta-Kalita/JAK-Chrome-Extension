@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { Release as Release_ } from "github-webhook-event-types";
-import { get, getDatabase, ref } from "firebase/database";
+import { get, getDatabase, ref, onChildAdded } from "firebase/database";
 
 interface Release extends Release_ {
     timestamp: Object;
@@ -61,12 +61,16 @@ try {
 
     const db = getDatabase(firebaseApp);
 
-    get(ref(db, "notification")).then((snapshot) => {
-        if (snapshot.exists()) {
-            const data = snapshot.val() as Release;
+    const docRef = ref(db, "notification");
 
-            console.log(data);
-        }
+    onChildAdded(docRef, () => {
+        get(docRef).then((docSnapshot) => {
+            if (docSnapshot.exists()) {
+                const data = docSnapshot.val() as Release;
+
+                console.log(data);
+            }
+        });
     });
 } catch (error) {
     console.log(error);
