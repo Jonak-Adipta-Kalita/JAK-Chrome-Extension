@@ -69,6 +69,8 @@ try {
                 const data = docSnapshot.val() as Release;
 
                 console.log(data);
+                // Display Notification
+                // Delete the Data
             }
         });
     });
