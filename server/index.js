@@ -7,9 +7,7 @@ const express_1 = __importDefault(require("express"));
 const app_1 = require("firebase/app");
 const database_1 = require("firebase/database");
 const dotenv_1 = __importDefault(require("dotenv"));
-const PRODUCTION = true;
-if (!PRODUCTION)
-    dotenv_1.default.config();
+dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
 const firebaseApp = (0, app_1.getApps)().length === 0

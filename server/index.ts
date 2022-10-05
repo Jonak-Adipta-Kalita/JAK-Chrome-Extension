@@ -4,9 +4,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getDatabase, ref, set, serverTimestamp, get } from "firebase/database";
 import dotenv from "dotenv";
 
-const PRODUCTION = true;
-
-if (!PRODUCTION) dotenv.config();
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
