@@ -42,23 +42,29 @@ app.post("/webhook", (req, res) => {
     const data: Release = req.body;
 
     if (data.action === "released") {
-        const docRef = ref(db, "notification");
+        try {
+            const docRef = ref(db, "notification");
 
-        get(docRef).then((snapshot) => {
-            const currentNotificaions = snapshot.val() as Release[];
-            const newNotification: Release = {
-                ...data,
-                timestamp: serverTimestamp(),
-            };
+            get(docRef).then((snapshot) => {
+                const currentNotificaions = snapshot.val() as Release[];
+                const newNotification: Release = {
+                    ...data,
+                    timestamp: serverTimestamp(),
+                };
 
-            set(
-                docRef,
-                currentNotificaions
-                    ? currentNotificaions.push(newNotification)
-                    : [newNotification]
+                set(
+                    docRef,
+                    currentNotificaions
+                        ? currentNotificaions.push(newNotification)
+                        : [newNotification]
+                );
+            });
+            res.status(200).send("Response recieved!!");
+        } catch (error: any) {
+            res.status(500).send(
+                `Response recieved but Error occurred: ${error.message}`
             );
-        });
-        res.status(200).send("Response recieved!!");
+        }
     } else {
         res.status(200).send("Response recieved but not the one expected!!");
     }
