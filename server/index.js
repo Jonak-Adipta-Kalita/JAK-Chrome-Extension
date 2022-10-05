@@ -7,7 +7,9 @@ const express_1 = __importDefault(require("express"));
 const app_1 = require("firebase/app");
 const database_1 = require("firebase/database");
 const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
+const PRODUCTION = true;
+if (!PRODUCTION)
+    dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
 const firebaseApp = (0, app_1.getApps)().length === 0
@@ -32,8 +34,8 @@ app.post("/webhook", (req, res) => {
     const data = req.body;
     if (data.action === "released") {
         const docRef = (0, database_1.ref)(db, "notification");
-        (0, database_1.get)(docRef).then((docData) => {
-            const currentNotificaions = docData.val();
+        (0, database_1.get)(docRef).then((snapshot) => {
+            const currentNotificaions = snapshot.val();
             const newNotification = Object.assign(Object.assign({}, data), { timestamp: (0, database_1.serverTimestamp)() });
             (0, database_1.set)(docRef, currentNotificaions
                 ? currentNotificaions.push(newNotification)
