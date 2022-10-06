@@ -2,7 +2,6 @@ import express from "express";
 import { Release as Release_ } from "github-webhook-event-types";
 import firebase from "firebase-admin";
 import dotenv from "dotenv";
-import cors from "cors";
 
 dotenv.config();
 
@@ -32,7 +31,6 @@ const db = firebase.database(firebaseApp);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: true }));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
