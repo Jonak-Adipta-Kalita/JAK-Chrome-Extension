@@ -40,7 +40,6 @@
     },
     "dependencies": {
         "dotenv-webpack": "^8.0.1",
-        "firebase": "^9.10.0",
         "github-webhook-event-types": "^1.2.1"
     }
 }
