@@ -40,11 +40,12 @@ fetch(`${process.env.SERVER_URL}/read/notifications`)
     })
     .then((data) => {
         data?.map((release: any) => {
-            const name = release.repository.name.split("jak-")[1];
-            console.log(name);
+            const name: string = release.repository.name
+                .toLowerCase()
+                .split("jak-")[0];
 
-            if (localStorage.getItem(name) === "Enable") {
-                chrome.runtime.sendMessage(release);
+            if (localStorage.getItem(`${name}-notifyBtn`) === "Enable") {
+                chrome.runtime.sendMessage({ release, name });
             }
             // Delete the Data
         });

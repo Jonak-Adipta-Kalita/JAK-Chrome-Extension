@@ -43,19 +43,21 @@ try {
         }
     });
 
-    chrome.runtime.onMessage.addListener((release: Release) => {
-        chrome.notifications.create(
-            `github-notification-${release.repository.name.split("jak-")[1]}`,
-            {
-                type: "basic",
-                iconUrl: "../../assets/images/logo.png",
-                title: `New release!! in ${release.repository.name}`,
-                message: `There is a new Release in ${release.repository.name}`,
-                priority: 2,
-            },
-            () => {}
-        );
-    });
+    chrome.runtime.onMessage.addListener(
+        ({ release, name }: { release: Release; name: string }) => {
+            chrome.notifications.create(
+                `github-notification-${name}`,
+                {
+                    type: "basic",
+                    iconUrl: "../../assets/images/logo.png",
+                    title: `New release!! in ${release.repository.name}`,
+                    message: `There is a new Release in ${release.repository.name}`,
+                    priority: 2,
+                },
+                () => {}
+            );
+        }
+    );
 } catch (error) {
     console.log(error);
 }
