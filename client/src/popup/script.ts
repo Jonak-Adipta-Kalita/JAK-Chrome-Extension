@@ -38,23 +38,24 @@ discordBot_notifyBtn.addEventListener("click", () => {
 fetchBtn.addEventListener("click", () => {
     fetch(`${process.env.SERVER_URL}/notifications`, { method: "GET" })
         .then((response) => {
-            return response.json();
+            try {
+                return response.json();
+            } catch (error) {
+                console.log(error);
+            }
         })
         .then((data) => {
-            if (data)
-                data.map((release: any, index: number) => {
-                    const name: string = release.repository.name
-                        .toLowerCase()
-                        .split("jak-")[0];
+            data?.map((release: any, index: number) => {
+                const name: string = release.repository.name
+                    .toLowerCase()
+                    .split("jak-")[0];
 
-                    if (
-                        localStorage.getItem(`${name}-notifyBtn`) === "Enable"
-                    ) {
-                        chrome.runtime.sendMessage({ release, name });
-                    }
-                    fetch(`${process.env.SERVER_URL}/notifications/${index}`, {
-                        method: "DELETE",
-                    });
+                if (localStorage.getItem(`${name}-notifyBtn`) === "Enable") {
+                    chrome.runtime.sendMessage({ release, name });
+                }
+                fetch(`${process.env.SERVER_URL}/notifications/${index}`, {
+                    method: "DELETE",
                 });
+            });
         });
 });

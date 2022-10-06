@@ -84,3 +84,7 @@ html {
     height: 60%;
     padding: 5px;
 }
+
+.main-body .fetchBtn-container #fetchBtn:hover {
+    opacity: 0.9;
+}
