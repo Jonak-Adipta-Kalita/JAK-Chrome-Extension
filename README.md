@@ -58,6 +58,30 @@ Open another Terminal, and run the following command:
 ngrok http 3000
 ```
 
+### Putting Environment Variables
+
+Create a `client/.env` and a `server/.env` files!!
+
+Now put this values in the files!!
+
+In `client/.env`:
+
+```env
+SERVER_URL=<YOUR_NGROCK_URL>
+```
+
+In `server/.env`:
+
+```env
+PORT=3000
+
+# Firebase
+FIREBASE_DATABASE_URL=<YOUR_FIREBASE_DATABASE_URL>
+FIREBASE_CLIENT_EMAIL=<YOUR_FIREBASE_CLIENT_EMAIL>
+FIREBASE_PRIVATE_KEY=<YOUR_FIREBASE_PRIVATE_KEY>
+FIREBASE_PROJECT_ID=<YOUR_FIREBASE_PROJECT_ID>
+```
+
 ### Load Extension
 
 ### Add the Webhook
