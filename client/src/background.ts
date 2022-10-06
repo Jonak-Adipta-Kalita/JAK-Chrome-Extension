@@ -42,6 +42,16 @@ try {
             });
         }
     });
+
+    fetch(`${process.env.SERVER_URL}/read/notifications`)
+        .then((response) => {
+            return response.json() as Promise<Release>;
+        })
+        .then((data) => {
+            console.log(data);
+        });
+    // Send Notification
+    // Delete the Data
 } catch (error) {
     console.log(error);
 }
