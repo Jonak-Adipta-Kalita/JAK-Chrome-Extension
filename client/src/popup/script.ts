@@ -34,12 +34,12 @@ discordBot_notifyBtn.addEventListener("click", () => {
     )!;
 });
 
-fetch(`${process.env.SERVER_URL}/read/notifications`)
+fetch(`${process.env.SERVER_URL}/notifications`, { method: "GET" })
     .then((response) => {
         return response.json();
     })
     .then((data) => {
-        data?.map((release: any) => {
+        data?.map((release: any, index: number) => {
             const name: string = release.repository.name
                 .toLowerCase()
                 .split("jak-")[0];
@@ -47,6 +47,8 @@ fetch(`${process.env.SERVER_URL}/read/notifications`)
             if (localStorage.getItem(`${name}-notifyBtn`) === "Enable") {
                 chrome.runtime.sendMessage({ release, name });
             }
-            // Delete the Data
+            fetch(`${process.env.SERVER_URL}/notifications/${index}`, {
+                method: "DELETE",
+            });
         });
     });

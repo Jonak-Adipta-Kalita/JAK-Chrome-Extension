@@ -2,6 +2,7 @@ import express from "express";
 import { Release as Release_ } from "github-webhook-event-types";
 import firebase from "firebase-admin";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ const db = firebase.database(firebaseApp);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
@@ -70,7 +72,7 @@ app.post("/webhook", (req, res) => {
     }
 });
 
-app.get("/read/notifications", (req, res) => {
+app.get("/notifications", (req, res) => {
     (async () => {
         try {
             const docRef = db.ref("notifications");
@@ -78,6 +80,26 @@ app.get("/read/notifications", (req, res) => {
             const data = snapshot.val();
 
             res.status(200).send(data);
+        } catch (error: any) {
+            res.status(500).send(`Error occurred: ${error.message}`);
+        }
+    })();
+});
+
+app.delete("/notifications/:index", (req, res) => {
+    (async () => {
+        try {
+            const docRef = db.ref("notifications");
+            const snapshot = await docRef.get();
+            const data = snapshot.val() as Release[];
+
+            const newData = data.filter(
+                (data_) => data_ !== data[Number(req.params.index)]
+            );
+
+            docRef.set(newData);
+
+            res.status(200).send(`Deleted!! Index: ${req.params.index}`);
         } catch (error: any) {
             res.status(500).send(`Error occurred: ${error.message}`);
         }

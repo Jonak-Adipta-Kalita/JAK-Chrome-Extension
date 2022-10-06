@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const firebase_admin_1 = __importDefault(require("firebase-admin"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
@@ -31,6 +32,7 @@ const firebaseApp = firebase_admin_1.default.apps.length === 0
 const db = firebase_admin_1.default.database(firebaseApp);
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.use((0, cors_1.default)({ origin: "*" }));
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
@@ -61,13 +63,28 @@ app.post("/webhook", (req, res) => {
         res.status(200).send("Response recieved but not the one expected!!");
     }
 });
-app.get("/read/notifications", (req, res) => {
+app.get("/notifications", (req, res) => {
     (() => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const docRef = db.ref("notifications");
             const snapshot = yield docRef.get();
             const data = snapshot.val();
             res.status(200).send(data);
+        }
+        catch (error) {
+            res.status(500).send(`Error occurred: ${error.message}`);
+        }
+    }))();
+});
+app.delete("/notifications/:index", (req, res) => {
+    (() => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const docRef = db.ref("notifications");
+            const snapshot = yield docRef.get();
+            const data = snapshot.val();
+            const newData = data.filter((data_) => data_ !== data[Number(req.params.index)]);
+            docRef.set(newData);
+            res.status(200).send(`Deleted!! Index: ${req.params.index}`);
         }
         catch (error) {
             res.status(500).send(`Error occurred: ${error.message}`);
