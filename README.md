@@ -27,14 +27,40 @@ Open a Terminal in the cloned project. Now type:
 ```shell
 # NPM
 
-npm install && npm run build
+cd client && npm install && npm run build
 
 # Yarn
 
-yarn && yarn build
+cd client && yarn && yarn build
 ```
 
 and hit Enter.
+
+### Start the Server with [Ngrok](https://ngrok.com/)
+
+Install [Ngrok](https://ngrok.com/)
+
+Open a Terminal in the cloned project. Now type:
+
+```shell
+# NPM
+
+cd server && npm install && npm start
+
+# Yarn
+
+cd server && yarn && yarn start
+```
+
+Open another Terminal, and run the following command:
+
+```shell
+ngrok http 3000
+```
+
+### Load Extension
+
+### Add the Webhook
 
 ### Test Extension
 
