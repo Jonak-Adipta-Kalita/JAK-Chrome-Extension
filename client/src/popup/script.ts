@@ -1,6 +1,7 @@
 const website_notifyBtn = document.getElementById("website-notifyBtn")!;
 const api_notifyBtn = document.getElementById("api-notifyBtn")!;
 const discordBot_notifyBtn = document.getElementById("discord-bot-notifyBtn")!;
+const fetchBtn = document.getElementById("fetchBtn")!;
 
 website_notifyBtn.addEventListener("click", () => {
     if (website_notifyBtn.innerText === "Enable") {
@@ -32,4 +33,33 @@ discordBot_notifyBtn.addEventListener("click", () => {
     discordBot_notifyBtn.innerText = localStorage.getItem(
         "discord-bot-notifyBtn"
     )!;
+});
+
+fetchBtn.addEventListener("click", () => {
+    fetch(`${process.env.SERVER_URL}/notifications/read`, { method: "GET" })
+        .then((response) => {
+            try {
+                return response.json();
+            } catch (error) {
+                console.log(error);
+            }
+        })
+        .then((data) => {
+            if (data.length !== 0) {
+                fetch(`${process.env.SERVER_URL}/notifications/delete`, {
+                    method: "DELETE",
+                });
+                data?.map(async (release: any, index: number) => {
+                    const name: string = release.repository.name
+                        .toLowerCase()
+                        .split("jak-")[0];
+
+                    if (
+                        localStorage.getItem(`${name}-notifyBtn`) === "Enable"
+                    ) {
+                        chrome.runtime.sendMessage({ release, name });
+                    }
+                });
+            }
+        });
 });

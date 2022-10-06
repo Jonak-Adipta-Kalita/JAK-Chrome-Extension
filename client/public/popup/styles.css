@@ -69,3 +69,22 @@ html {
 .main-body .notifications .notify-btn:hover {
     opacity: 0.9;
 }
+
+.main-body .fetchBtn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-body .fetchBtn-container #fetchBtn {
+    cursor: pointer;
+    outline: none;
+    margin-top: 12px;
+    border-radius: 10px;
+    height: 60%;
+    padding: 5px;
+}
+
+.main-body .fetchBtn-container #fetchBtn:hover {
+    opacity: 0.9;
+}

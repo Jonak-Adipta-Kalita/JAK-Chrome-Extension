@@ -1,8 +1,8 @@
 import express from "express";
 import { Release as Release_ } from "github-webhook-event-types";
-import { initializeApp, getApps, getApp } from "firebase/app";
-import { getDatabase, ref, set, serverTimestamp, get } from "firebase/database";
+import firebase from "firebase-admin";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -14,23 +14,25 @@ interface Release extends Release_ {
 }
 
 const firebaseApp =
-    getApps().length === 0
-        ? initializeApp({
-              apiKey: process.env.FIREBASE_API_KEY,
-              authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-              projectId: process.env.FIREBASE_PROJECT_ID,
+    firebase.apps.length === 0
+        ? firebase.initializeApp({
+              credential: firebase.credential.cert({
+                  clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+                  privateKey: process.env.FIREBASE_PRIVATE_KEY!.replace(
+                      /\\n/g,
+                      "\n"
+                  ),
+                  projectId: process.env.FIREBASE_PROJECT_ID,
+              }),
               databaseURL: process.env.FIREBASE_DATABASE_URL,
-              storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-              messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-              appId: process.env.FIREBASE_APP_ID,
-              measurementId: process.env.FIREBASE_MEASUREMENT_ID,
           })
-        : getApp();
+        : firebase.app();
 
-const db = getDatabase(firebaseApp);
+const db = firebase.database(firebaseApp);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
@@ -40,32 +42,65 @@ app.post("/webhook", (req, res) => {
     const data: Release = req.body;
 
     if (data.action === "released") {
-        try {
-            const docRef = ref(db, "notification");
+        async () => {
+            try {
+                const docRef = db.ref("notifications");
 
-            get(docRef).then((snapshot) => {
-                const currentNotificaions = snapshot.val() as Release[];
+                const snapshot = await docRef.get();
                 const newNotification: Release = {
                     ...data,
-                    timestamp: serverTimestamp(),
+                    timestamp: firebase.database.ServerValue.TIMESTAMP,
                 };
 
-                set(
-                    docRef,
-                    currentNotificaions
-                        ? currentNotificaions.push(newNotification)
-                        : [newNotification]
+                if (!snapshot.exists()) {
+                    docRef.set([newNotification]);
+                } else {
+                    const currentNotificaions = snapshot.val() as Release[];
+                    currentNotificaions.push(newNotification);
+
+                    docRef.set(currentNotificaions);
+                }
+            } catch (error: any) {
+                res.status(500).send(
+                    `Response recieved but Error occurred: ${error.message}`
                 );
-            });
+            }
             res.status(200).send("Response recieved!!");
-        } catch (error: any) {
-            res.status(500).send(
-                `Response recieved but Error occurred: ${error.message}`
-            );
-        }
+        };
     } else {
         res.status(200).send("Response recieved but not the one expected!!");
     }
+});
+
+app.get("/notifications/read", (req, res) => {
+    (async () => {
+        try {
+            const docRef = db.ref("notifications");
+            const snapshot = await docRef.get();
+            const data = snapshot.val() as Release | null;
+
+            if (data) {
+                res.status(200).send(data);
+            } else {
+                res.status(200).send([]);
+            }
+        } catch (error: any) {
+            res.status(500).send(`Error occurred: ${error.message}`);
+        }
+    })();
+});
+
+app.delete("/notifications/delete", (req, res) => {
+    (async () => {
+        try {
+            const docRef = db.ref("notifications");
+            docRef.set([]);
+
+            res.status(200).send("Deleted!!");
+        } catch (error: any) {
+            res.status(500).send(`Error occurred: ${error.message}`);
+        }
+    })();
 });
 
 app.listen(PORT, () => {

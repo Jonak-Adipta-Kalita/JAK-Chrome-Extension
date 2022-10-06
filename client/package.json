@@ -5,7 +5,7 @@
     "main": "dist/background.js",
     "scripts": {
         "test": "echo No Tests provided till now.",
-        "build": "tsc && webpack --config webpack.config.js",
+        "build": "webpack --config webpack.config.js",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "prettier": "prettier **/*.{js,ts,html,css,md,json}",
@@ -40,7 +40,6 @@
     },
     "dependencies": {
         "dotenv-webpack": "^8.0.1",
-        "firebase": "^9.10.0",
         "github-webhook-event-types": "^1.2.1"
     }
 }
