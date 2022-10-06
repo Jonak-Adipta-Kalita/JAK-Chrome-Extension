@@ -69,7 +69,12 @@ app.get("/notifications/read", (req, res) => {
             const docRef = db.ref("notifications");
             const snapshot = yield docRef.get();
             const data = snapshot.val();
-            res.status(200).send(data);
+            if (data) {
+                res.status(200).send(data);
+            }
+            else {
+                res.status(200).send([]);
+            }
         }
         catch (error) {
             res.status(500).send(`Error occurred: ${error.message}`);

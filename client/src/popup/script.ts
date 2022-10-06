@@ -45,19 +45,21 @@ fetchBtn.addEventListener("click", () => {
             }
         })
         .then((data) => {
-            fetch(`${process.env.SERVER_URL}/notifications/delete`, {
-                method: "DELETE",
-            }).then(async (response) => {
-                console.log(await response.text());
-            });
-            data?.map(async (release: any, index: number) => {
-                const name: string = release.repository.name
-                    .toLowerCase()
-                    .split("jak-")[0];
+            if (data.length !== 0) {
+                fetch(`${process.env.SERVER_URL}/notifications/delete`, {
+                    method: "DELETE",
+                });
+                data?.map(async (release: any, index: number) => {
+                    const name: string = release.repository.name
+                        .toLowerCase()
+                        .split("jak-")[0];
 
-                if (localStorage.getItem(`${name}-notifyBtn`) === "Enable") {
-                    chrome.runtime.sendMessage({ release, name });
-                }
-            });
+                    if (
+                        localStorage.getItem(`${name}-notifyBtn`) === "Enable"
+                    ) {
+                        chrome.runtime.sendMessage({ release, name });
+                    }
+                });
+            }
         });
 });
