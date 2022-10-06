@@ -36,7 +36,7 @@ discordBot_notifyBtn.addEventListener("click", () => {
 });
 
 fetchBtn.addEventListener("click", () => {
-    fetch(`${process.env.SERVER_URL}/notifications`, { method: "GET" })
+    fetch(`${process.env.SERVER_URL}/notifications/read`, { method: "GET" })
         .then((response) => {
             try {
                 return response.json();
@@ -45,7 +45,12 @@ fetchBtn.addEventListener("click", () => {
             }
         })
         .then((data) => {
-            data?.map((release: any, index: number) => {
+            fetch(`${process.env.SERVER_URL}/notifications/delete`, {
+                method: "DELETE",
+            }).then(async (response) => {
+                console.log(await response.text());
+            });
+            data?.map(async (release: any, index: number) => {
                 const name: string = release.repository.name
                     .toLowerCase()
                     .split("jak-")[0];
@@ -53,9 +58,6 @@ fetchBtn.addEventListener("click", () => {
                 if (localStorage.getItem(`${name}-notifyBtn`) === "Enable") {
                     chrome.runtime.sendMessage({ release, name });
                 }
-                fetch(`${process.env.SERVER_URL}/notifications/${index}`, {
-                    method: "DELETE",
-                });
             });
         });
 });

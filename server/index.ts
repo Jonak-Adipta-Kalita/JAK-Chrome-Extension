@@ -72,7 +72,7 @@ app.post("/webhook", (req, res) => {
     }
 });
 
-app.get("/notifications", (req, res) => {
+app.get("/notifications/read", (req, res) => {
     (async () => {
         try {
             const docRef = db.ref("notifications");
@@ -86,17 +86,13 @@ app.get("/notifications", (req, res) => {
     })();
 });
 
-app.delete("/notifications/:index", (req, res) => {
+app.delete("/notifications/delete", (req, res) => {
     (async () => {
         try {
             const docRef = db.ref("notifications");
-            const snapshot = await docRef.get();
-            const datas = snapshot.val() as Release[];
-            docRef.set(
-                datas.filter((data) => data !== datas[Number(req.params.index)])
-            );
+            docRef.set([]);
 
-            res.status(200).send(`Deleted!! Index: ${req.params.index}`);
+            res.status(200).send("Deleted!!");
         } catch (error: any) {
             res.status(500).send(`Error occurred: ${error.message}`);
         }
