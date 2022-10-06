@@ -42,10 +42,11 @@ app.post("/webhook", (req, res) => {
     const data: Release = req.body;
 
     if (data.action === "released") {
-        try {
-            const docRef = db.ref("notifications");
+        async () => {
+            try {
+                const docRef = db.ref("notifications");
 
-            docRef.get().then((snapshot) => {
+                const snapshot = await docRef.get();
                 const newNotification: Release = {
                     ...data,
                     timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -59,16 +60,30 @@ app.post("/webhook", (req, res) => {
 
                     docRef.set(currentNotificaions);
                 }
-            });
+            } catch (error: any) {
+                res.status(500).send(
+                    `Response recieved but Error occurred: ${error.message}`
+                );
+            }
             res.status(200).send("Response recieved!!");
-        } catch (error: any) {
-            res.status(500).send(
-                `Response recieved but Error occurred: ${error.message}`
-            );
-        }
+        };
     } else {
         res.status(200).send("Response recieved but not the one expected!!");
     }
+});
+
+app.get("/read/notifications", (req, res) => {
+    (async () => {
+        try {
+            const docRef = db.ref("notifications");
+            const snapshot = await docRef.get();
+            const data = snapshot.val();
+
+            res.status(200).send(data);
+        } catch (error: any) {
+            res.status(500).send(`Error occurred: ${error.message}`);
+        }
+    })();
 });
 
 app.listen(PORT, () => {

@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -30,9 +39,10 @@ app.get("/", (req, res) => {
 app.post("/webhook", (req, res) => {
     const data = req.body;
     if (data.action === "released") {
-        try {
-            const docRef = db.ref("notifications");
-            docRef.get().then((snapshot) => {
+        () => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                const docRef = db.ref("notifications");
+                const snapshot = yield docRef.get();
                 const newNotification = Object.assign(Object.assign({}, data), { timestamp: firebase_admin_1.default.database.ServerValue.TIMESTAMP });
                 if (!snapshot.exists()) {
                     docRef.set([newNotification]);
@@ -42,16 +52,29 @@ app.post("/webhook", (req, res) => {
                     currentNotificaions.push(newNotification);
                     docRef.set(currentNotificaions);
                 }
-            });
+            }
+            catch (error) {
+                res.status(500).send(`Response recieved but Error occurred: ${error.message}`);
+            }
             res.status(200).send("Response recieved!!");
-        }
-        catch (error) {
-            res.status(500).send(`Response recieved but Error occurred: ${error.message}`);
-        }
+        });
     }
     else {
         res.status(200).send("Response recieved but not the one expected!!");
     }
+});
+app.get("/read/notifications", (req, res) => {
+    (() => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const docRef = db.ref("notifications");
+            const snapshot = yield docRef.get();
+            const data = snapshot.val();
+            res.status(200).send(data);
+        }
+        catch (error) {
+            res.status(500).send(`Error occurred: ${error.message}`);
+        }
+    }))();
 });
 app.listen(PORT, () => {
     console.log(`Running on: http://localhost:${PORT}`);
