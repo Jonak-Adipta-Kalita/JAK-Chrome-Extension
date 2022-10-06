@@ -48,7 +48,7 @@ try {
             chrome.notifications.create(`github-notification-${name}`, {
                 type: "basic",
                 iconUrl: "./assets/images/logo.png",
-                title: `New release!! in ${release.repository.name}`,
+                title: `New release in ${release.repository.name}!!`,
                 message: `There is a new Release in ${release.repository.name}`,
                 priority: 2,
             });
