@@ -1,6 +1,6 @@
 import { Release as Release_ } from "github-webhook-event-types";
 
-interface Release extends Release_ {
+export interface Release extends Release_ {
     timestamp: Object;
 }
 
@@ -43,15 +43,19 @@ try {
         }
     });
 
-    fetch(`${process.env.SERVER_URL}/read/notifications`)
-        .then((response) => {
-            return response.json() as Promise<Release>;
-        })
-        .then((data) => {
-            console.log(data);
-        });
-    // Send Notification
-    // Delete the Data
+    chrome.runtime.onMessage.addListener((release: Release) => {
+        chrome.notifications.create(
+            `github-notification-${release.repository.name.split("jak-")[1]}`,
+            {
+                type: "basic",
+                iconUrl: "../../assets/images/logo.png",
+                title: `New release!! in ${release.repository.name}`,
+                message: `There is a new Release in ${release.repository.name}`,
+                priority: 2,
+            },
+            () => {}
+        );
+    });
 } catch (error) {
     console.log(error);
 }

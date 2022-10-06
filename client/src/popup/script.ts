@@ -33,3 +33,19 @@ discordBot_notifyBtn.addEventListener("click", () => {
         "discord-bot-notifyBtn"
     )!;
 });
+
+fetch(`${process.env.SERVER_URL}/read/notifications`)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        data?.map((release: any) => {
+            const name = release.repository.name.split("jak-")[1];
+            console.log(name);
+
+            if (localStorage.getItem(name) === "Enable") {
+                chrome.runtime.sendMessage(release);
+            }
+            // Delete the Data
+        });
+    });
