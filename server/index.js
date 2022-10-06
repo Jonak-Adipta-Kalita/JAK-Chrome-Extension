@@ -82,8 +82,7 @@ app.delete("/notifications/:index", (req, res) => {
             const docRef = db.ref("notifications");
             const snapshot = yield docRef.get();
             const data = snapshot.val();
-            const newData = data.filter((data_) => data_ !== data[Number(req.params.index)]);
-            docRef.set(newData);
+            docRef.set(data.filter((data_) => data_ !== data[Number(req.params.index)]));
             res.status(200).send(`Deleted!! Index: ${req.params.index}`);
         }
         catch (error) {
