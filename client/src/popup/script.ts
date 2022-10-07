@@ -1,6 +1,8 @@
 const website_notifyBtn = document.getElementById("website-notifyBtn")!;
 const api_notifyBtn = document.getElementById("api-notifyBtn")!;
 const discordBot_notifyBtn = document.getElementById("discord-bot-notifyBtn")!;
+const mobileApp_notifyBtn = document.getElementById("mobile-app-notifyBtn")!;
+
 const fetchBtn = document.getElementById("fetchBtn")!;
 
 website_notifyBtn.addEventListener("click", () => {
@@ -32,6 +34,18 @@ discordBot_notifyBtn.addEventListener("click", () => {
 
     discordBot_notifyBtn.innerText = localStorage.getItem(
         "discord-bot-notifyBtn"
+    )!;
+});
+
+mobileApp_notifyBtn.addEventListener("click", () => {
+    if (mobileApp_notifyBtn.innerText === "Enable") {
+        localStorage.setItem("mobile-app-notifyBtn", "Disable");
+    } else {
+        localStorage.setItem("mobile-app-notifyBtn", "Enable");
+    }
+
+    mobileApp_notifyBtn.innerText = localStorage.getItem(
+        "mobile-app-notifyBtn"
     )!;
 });
 
