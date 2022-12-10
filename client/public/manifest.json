@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "description": "A Chrome Extension made by JAK",
     "permissions": ["contextMenus", "tabs", "notifications"],
+    "host_permissions": ["https://jak-chrome-extension.vercel.app/*"],
     "background": {
         "service_worker": "background.js",
         "type": "module"
