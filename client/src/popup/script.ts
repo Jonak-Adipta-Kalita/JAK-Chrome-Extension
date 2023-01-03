@@ -133,11 +133,14 @@ const displayProjects = async () => {
             nameArray.shift();
             const name = nameArray.join("-").toLowerCase();
 
+            const buttonTitle =
+                localStorage.getItem(`${name}-notifyBtn`) || "Enable";
+
             return `
                 <div class="${name}">
                     <p>${repo.name.split("-").join(" ")}</p>
                     <button class="notify-btn" id="${name}-notifyBtn">
-                        Enable
+                        ${buttonTitle}
                     </button>
                 </div>
             `;
