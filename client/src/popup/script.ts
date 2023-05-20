@@ -127,7 +127,7 @@ const displayProjects = async () => {
     const data = (await response.json()) as GithubRepo[];
 
     const projectsHTML = data
-        .filter((repo) => repo.private === false && repo.name !== ACCOUNT_NAME)
+        .filter((repo) => repo.private === false && repo.name !== ACCOUNT_NAME && !repo.fork)
         .map((repo) => {
             const nameArray = repo.name.split("-");
             nameArray.shift();
