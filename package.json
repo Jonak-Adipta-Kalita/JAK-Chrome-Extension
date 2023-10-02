@@ -3,11 +3,17 @@
   "displayName": "Jak chrome extension",
   "version": "0.0.1",
   "description": "Simplifying your digital life with multiple features in one app, reducing the need for switching and saving storage space.",
-  "author": "xxJonakAdiptaxx",
+  "author": "Jonak Adipta Kalita",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
-    "test": "plasmo test"
+    "test": "plasmo test",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prettier": "prettier **/*.{js,ts,html,css,md,json}",
+    "prettier:fix": "prettier --write **/*.{js,ts,html,css,md,json}",
+    "format": "eslint --fix . && prettier --write **/*.{js,ts,html,css,md,json}",
+    "check:version": "ncu"
   },
   "dependencies": {
     "plasmo": "0.83.0",
@@ -20,9 +26,23 @@
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "eslint": "^8.50.0",
     "prettier": "3.0.3",
     "typescript": "5.2.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/issues"
+  },
+  "homepage": "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension#readme",
   "manifest": {
     "host_permissions": [
       "https://*/*"
