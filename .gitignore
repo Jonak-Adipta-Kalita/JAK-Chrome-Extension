@@ -156,4 +156,14 @@ out
 # and uncomment the following lines
 # .pnp.*
 
+out/
+build/
+dist/
+
+# plasmo
+.plasmo
+
+# typescript
+.tsbuildinfo
+
 # End of https://www.toptal.com/developers/gitignore/api/yarn,node,visualstudiocode
