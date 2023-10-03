@@ -1,6 +1,19 @@
-<div align='center'>
+<br />
+<div align=center>
 
-# JAK-Chrome-Extension
+![Title](https://raw.githubusercontent.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/main/assets/title.png)
+
+</div>
+
+<div align=justify>
+
+**JAK Chrome Extension** is an open-source chrome extension that simplifies your digital experience by consolidating multiple features into a single platform. Say goodbye to switching between various apps and websites. With it, you can access a range of functionalities, reducing the need for multiple app downloads and saving storage space on your device. Enjoy a seamless user experience and discover a more efficient way to navigate your digital lifestyle.
+<br />
+<br />
+
+</div>
+
+<div align=center>
 
 ![License](https://img.shields.io/github/license/Jonak-Adipta-Kalita/JAK-Chrome-Extension?style=for-the-badge)
 ![GitHub Repo Stars](https://img.shields.io/github/stars/Jonak-Adipta-Kalita/JAK-Chrome-Extension?style=for-the-badge)
@@ -10,99 +23,29 @@
 
 </div>
 
+-   For [Desktop](https://github.com/Jonak-Adipta-Kalita/JAK-Desktop-App)
+-   For [Mobile](https://github.com/Jonak-Adipta-Kalita/JAK-Mobile-App)
+
+## Community support
+
+For additional help, you can use one of these channels to ask a question:
+
+-   [Github Discussions](https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/discussions) - Discussions with the community and the team.
+-   [Github Issues](https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/issues) - For bug reports and feature requests.
+-   [Twitter](https://twitter.com/AdiptaJonak) - Get the product updates easily.
+
+## Roadmap
+
+Check out our [roadmap](https://github.com/users/Jonak-Adipta-Kalita/projects/11) to get informed of the latest features released and the upcoming ones.
+
 ## Contributing
 
-### Clone the Repository
-
-To Clone this Repository, open a terminal in a empty folder and type
-
-```bash
-git clone https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension.git
-```
-
-### Build the Extension
-
-Open a Terminal in the cloned project. Now type:
-
-```shell
-# NPM
-
-cd client && npm install && npm run build
-
-# Yarn
-
-cd client && yarn && yarn build
-```
-
-and hit Enter.
-
-### Start the Server with [Ngrok](https://ngrok.com/)
-
-Install [Ngrok](https://ngrok.com/)
-
-Open a Terminal in the cloned project. Now type:
-
-```shell
-# NPM
-
-cd server && npm install && npm start
-
-# Yarn
-
-cd server && yarn && yarn start
-```
-
-Open another Terminal, and run the following command:
-
-```shell
-ngrok http 3000
-```
-
-### Putting Environment Variables
-
-Create a `client/.env` and a `server/.env` files!!
-
-Now put this values in the files!!
-
-In `client/.env`:
-
-```env
-SERVER_URL=<YOUR_NGROCK_URL>
-```
-
-In `server/.env`:
-
-```env
-PORT=3000
-
-# Firebase
-FIREBASE_DATABASE_URL=<YOUR_FIREBASE_DATABASE_URL>
-FIREBASE_CLIENT_EMAIL=<YOUR_FIREBASE_CLIENT_EMAIL>
-FIREBASE_PRIVATE_KEY=<YOUR_FIREBASE_PRIVATE_KEY>
-FIREBASE_PROJECT_ID=<YOUR_FIREBASE_PROJECT_ID>
-```
-
-### Load Extension
-
-### Add the Webhook
-
-### Test Extension
-
-To test the Extension open
-[Chrome Browser](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiC94vV_P_yAhV8nUsFHV2qDRcYABAAGgJzZg&ohost=www.google.com&cid=CAESQOD2UOFqLJr2ZMo7Oj1V1Y03IpxpuFITHXnfF1LAdvJzePe_Nq4ZLxgQXDnyHfp58GNhm-VO6zKnDaT0dyqbg9c&sig=AOD64_2O9vqVNN3OxLtxhvl-8WLRimeKCg&q&nis=1&adurl&ved=2ahUKEwid04TV_P_yAhUczjgGHeyrBQwQ0Qx6BAgCEAE)
-
-#### Turn on Developer Mode
-
-Go to [Chrome Extension Panel](chrome://extensions/) and turn on `Developer Mode`.
-
-#### Load Unpacked Extension
-
-In [Chrome Extension Panel](chrome://extensions/) click on `Load Unpacked` and select the `dist`
-folder. Now you can test your Extension.
+Kindly read our [Contributing Guide](CONTRIBUTING.md) to learn and understand about our development process, how to propose bug fixes and improvements, and how to build and test your changes to **JAK Chrome Extension**.
 
 ## Technology(s) Used
 
 -   Language: [JavaScript](https://www.javascript.com/)
+-   Frontend: [Plasmo](https://www.plasmo.com/)
 -   Backend: [Node JS](https://nodejs.org/)
 
 ## Contributors
