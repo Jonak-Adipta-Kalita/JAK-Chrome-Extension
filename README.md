@@ -7,7 +7,7 @@
 
 <div align=justify>
 
-**JAK Chrome Extension** is an open-source chrome extension that simplifies your digital experience by consolidating multiple features into a single platform. Say goodbye to switching between various apps and websites. With **JAK Chrome Extension**, you can access a range of functionalities, reducing the need for multiple app downloads and saving storage space on your device. Enjoy a seamless user experience and discover a more efficient way to navigate your digital lifestyle.
+**JAK Chrome Extension** is an open-source chrome extension that simplifies your digital experience by consolidating multiple features into a single platform. Say goodbye to switching between various apps and websites. With it, you can access a range of functionalities, reducing the need for multiple app downloads and saving storage space on your device. Enjoy a seamless user experience and discover a more efficient way to navigate your digital lifestyle.
 <br />
 <br />
 
