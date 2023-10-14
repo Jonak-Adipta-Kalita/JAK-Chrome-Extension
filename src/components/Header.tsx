@@ -1,5 +1,10 @@
 const Header = () => {
-    return <div></div>;
+    return (
+        <div className="shadow-xl">
+            <div></div>
+            <div></div>
+        </div>
+    );
 };
 
 export default Header;
