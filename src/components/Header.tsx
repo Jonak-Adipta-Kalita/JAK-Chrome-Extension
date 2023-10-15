@@ -2,16 +2,16 @@ import logo from "data-base64:~assets/icon.png";
 
 const Header = () => {
     return (
-        <div className="flex items-center justify-between">
-            <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between px-[15px] py-[9px]">
+            <div className="flex items-center space-x-4">
                 <img src={logo} alt="Logo" className="h-[50px] w-[50px]" />
                 <p className="text-center text-2xl font-[700] leading-[0px] text-[#F4F3F3]">
                     StreamlineX
                 </p>
             </div>
-            <div className="w-fit rounded-full bg-[#252525]">
+            <div className="w-fit transform cursor-pointer rounded-full bg-[#252525] p-1 transition duration-300 ease-in-out hover:scale-[1.3]">
                 <svg
-                    className="h-5 w-5"
+                    className="h-[30px] w-[30px]"
                     fill="#9E9E9E"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">

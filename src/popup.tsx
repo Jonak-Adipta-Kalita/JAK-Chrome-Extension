@@ -4,7 +4,7 @@ import Header from "~components/Header";
 
 const IndexPopup = () => {
     return (
-        <div className="bg-[#343434]">
+        <div className="w-[390px] bg-[#343434]">
             <Header />
         </div>
     );
