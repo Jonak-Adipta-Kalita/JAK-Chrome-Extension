@@ -2,10 +2,12 @@ import logo from "data-base64:~assets/icon.png";
 
 const Header = () => {
     return (
-        <div>
-            <div>
-                <img src={logo} alt="Logo" />
-                <p>StreamlineX</p>
+        <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between">
+                <img src={logo} alt="Logo" className="h-[50px] w-[50px]" />
+                <p className="text-center text-2xl font-[700] leading-[0px] text-[#F4F3F3]">
+                    StreamlineX
+                </p>
             </div>
             <div className="w-fit rounded-full bg-[#252525]">
                 <svg
