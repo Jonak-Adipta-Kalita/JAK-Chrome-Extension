@@ -9,7 +9,7 @@ const Header = () => {
                     StreamlineX
                 </p>
             </div>
-            <div className="w-fit transform cursor-pointer rounded-full bg-[#252525] p-1 transition duration-300 ease-in-out hover:scale-[1.3]">
+            <div className="w-fit transform cursor-pointer rounded-full bg-[#252525] p-1 transition duration-300 ease-in-out hover:scale-[1.2]">
                 <svg
                     className="h-[30px] w-[30px]"
                     fill="#9E9E9E"
