@@ -3,9 +3,9 @@ import logo from "data-base64:~assets/icon.png";
 const Header = () => {
     return (
         <div className="flex items-center justify-between px-[15px] py-[12px]">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-center space-x-4">
                 <img src={logo} alt="Logo" className="h-[40px] w-[40px]" />
-                <p className="text-center text-2xl font-[700] leading-[0px] text-[#F4F3F3]">
+                <p className="text-center text-2xl font-[700] text-[#F4F3F3]">
                     StreamlineX
                 </p>
             </div>
