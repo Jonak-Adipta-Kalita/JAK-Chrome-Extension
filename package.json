@@ -25,7 +25,7 @@
         "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
         "@types/chrome": "^0.0.245",
         "@types/node": "^20.5.9",
-        "@types/react": "^18.2.21",
+        "@types/react": "^18.2.30",
         "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^6.7.4",
         "@typescript-eslint/parser": "^6.7.4",
