@@ -1843,10 +1843,10 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
-"@types/chrome@^0.0.245":
-  version "0.0.245"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.245.tgz#2a63378baaf23941ecb5e2f43378ccbad06e47c0"
-  integrity sha512-bBdONkLO8wMbJK6iG0Q8ShFuh67Grnod+5OpClJaa8MuKJXP/Kjl3f8wRYeMOnQ0Q8HDgpUlopu8bvl9siR8/A==
+"@types/chrome@^0.0.253":
+  version "0.0.253"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.253.tgz#3b7c1b37c1eecae7c65799ebbf9d5d3e3a78cc5a"
+  integrity sha512-ZnBlbeoje0XaBrJbFCXI8DsDfqvqdoWQO5NSGecMCHFC8W8z/rb/n7lI1FHob+TFKKLR4L2c3QJJSFLwtVc9TA==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
